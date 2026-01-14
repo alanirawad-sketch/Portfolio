@@ -13,13 +13,14 @@
 <body>
 
     <header class="hero">
-    <div class="hero-content">
-        <h1>Hi, I'm <span class="highlight">Alani Rawad</span></h1>
-        <p class="tagline">Python Developer | Data Enthusiast | Problem Solver</p>
-        <a href="#projects" class="btn">View My Work</a>
-    </div>
-</header>
+        <div class="hero-content">
+            <h1>Hi, I'm <span class="highlight">Alani Rawad</span></h1>
+            <p class="tagline">Python Developer | Data Enthusiast | Problem Solver</p>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+    </header>
 
+    <main>
         <section class="links-section" data-aos="fade-up">
             <div class="section-label">Connect & Follow</div>
             <div class="button-group">
@@ -39,58 +40,64 @@
             </div>
         </section>
 
-        <section class="projects-section" data-aos="fade-up">
+        <section id="projects" class="projects-section" data-aos="fade-up">
             <div class="section-label">Selected Projects</div>
             <div class="grid">
                 
                 <div class="project-card">
+                    <h3>Meditrack</h3>
+                    <p>A comprehensive healthcare management system designed for tracking patient data and medical records efficiently.</p>
+                    <div class="tags">
+                        <span>#Healthcare</span>
+                        <span>#Python</span>
+                        <span>#Data-Analytics</span>
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <a href="https://alanirawad-sketch.github.io/Meditrack/" target="_blank" style="color: #64ffda; text-decoration: none; font-size: 0.85rem; margin-right: 12px; font-weight: 600;">Live Demo ↗</a>
+                        <a href="https://github.com/alanirawad-sketch/Meditrack" target="_blank" style="color: #a8b2d1; text-decoration: none; font-size: 0.85rem; font-weight: 600;">GitHub ↗</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
                     <h3>Neural Vision API</h3>
                     <p>An advanced image recognition engine with real-time processing.</p>
                     <div class="tags">
-                        
                         <span>#Python</span>
-                        
                         <span>#Flask</span>
-                        
                         <span>#OpenCV</span>
-                        
                     </div>
                 </div>
-                
+
                 <div class="project-card">
                     <h3>Quantum Portfolio</h3>
                     <p>The very site you are looking at. Highly dynamic and responsive.</p>
                     <div class="tags">
-                        
                         <span>#Glassmorphism</span>
-                        
                         <span>#CSS3</span>
-                        
                         <span>#Jinja2</span>
-                        
                     </div>
                 </div>
-                
+
                 <div class="project-card">
                     <h3>Cloud Automator</h3>
                     <p>Automation suite for managing virtual server environments.</p>
                     <div class="tags">
-                        
                         <span>#Python</span>
-                        
                         <span>#Ubuntu</span>
-                        
                         <span>#Bash</span>
-                        
                     </div>
                 </div>
-                
+
             </div>
         </section>
     </main>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>AOS.init({ duration: 800 });</script>
+    <script>
+        AOS.init({
+            duration: 800
+        });
+    </script>
 </body>
 
 </html>
