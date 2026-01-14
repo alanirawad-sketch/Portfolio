@@ -13,13 +13,14 @@
 <body>
 
     <header class="hero">
-    <div class="hero-content">
-        <h1>Hi, I'm <span class="highlight">Alani Rawad</span></h1>
-        <p class="tagline">Python Developer | Data Enthusiast | Problem Solver</p>
-        <a href="#projects" class="btn">View My Work</a>
-    </div>
-</header>
+        <div class="hero-content">
+            <h1>Hi, I'm <span class="highlight">Alani Rawad</span></h1>
+            <p class="tagline">Python Developer | Data Enthusiast | Problem Solver</p>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+    </header>
 
+    <main>
         <section class="links-section" data-aos="fade-up">
             <div class="section-label">Connect & Follow</div>
             <div class="button-group">
@@ -42,10 +43,10 @@
         <section id="projects" class="projects-section" data-aos="fade-up">
             <div class="section-label">Selected Projects</div>
             <div class="grid">
-                
+
                 <div class="project-card">
                     <h3><a href="https://alanirawad-sketch.github.io/Meditrack/" style="text-decoration: none; color: inherit;">Meditrack</a></h3>
-                    <p>A comprehensive healthcare management system designed for tracking patient data and medical records efficiently.</p>
+                    <p>A comprehensive healthcare management system designed for tracking patient data and medical records.</p>
                     <div class="tags">
                         <span>#Python</span>
                         <span>#Healthcare</span>
@@ -62,7 +63,7 @@
                         <span>#OpenCV</span>
                     </div>
                 </div>
-                
+
                 <div class="project-card">
                     <h3>Quantum Portfolio</h3>
                     <p>The very site you are looking at. Highly dynamic and responsive.</p>
@@ -72,7 +73,7 @@
                         <span>#Jinja2</span>
                     </div>
                 </div>
-                
+
                 <div class="project-card">
                     <h3>Cloud Automator</h3>
                     <p>Automation suite for managing virtual server environments.</p>
@@ -82,12 +83,17 @@
                         <span>#Bash</span>
                     </div>
                 </div>
-                
+
             </div>
         </section>
+    </main>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>AOS.init({ duration: 800 });</script>
+    <script>
+        AOS.init({
+            duration: 800
+        });
+    </script>
 </body>
 
 </html>
