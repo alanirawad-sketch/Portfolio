@@ -1,0 +1,132 @@
+:root {
+    /* Vibrant Color Palette */
+    --primary-grad: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+    /* Pink-Red */
+    --blue-grad: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    --green-grad: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    --glass: rgba(255, 255, 255, 0.2);
+    --glass-border: rgba(255, 255, 255, 0.4);
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    /* Animated Gradient Background */
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #fff;
+    min-height: 100vh;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.section-label {
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+/* Hero */
+.hero-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin: 0;
+    letter-spacing: -2px;
+}
+
+/* Buttons Section */
+.links-section {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.social-btn {
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: 0.3s;
+    border: 1px solid var(--glass-border);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.social-btn:hover {
+    transform: scale(1.05);
+    background: white;
+    color: #e73c7e;
+}
+
+/* Bio Section */
+.bio-section {
+    margin-bottom: 30px;
+}
+
+.bio-card h2 {
+    margin-top: 0;
+    line-height: 1.2;
+}
+
+/* Projects Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+}
+
+.tags span {
+    font-size: 0.7rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 10px;
+    border-radius: 5px;
+    margin-right: 5px;
+}

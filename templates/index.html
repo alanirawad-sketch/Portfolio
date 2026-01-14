@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ data.name }} | Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+
+    <main class="wrapper">
+        <section class="hero-section" data-aos="zoom-out">
+            <div class="glass-card main-hero">
+                <h1>{{ data.name }}</h1>
+                <p class="subtitle">{{ data.title }}</p>
+            </div>
+        </section>
+
+        <section class="links-section" data-aos="fade-up">
+            <div class="section-label">Connect & Follow</div>
+            <div class="button-group">
+                <a href="{{ data.social.github }}" class="social-btn github">GitHub</a>
+                <a href="{{ data.social.linkedin }}" class="social-btn linkedin">LinkedIn</a>
+                <a href="{{ data.social.Facebook }}" class="social-btn facebook">Facebook</a>
+                <a href="{{ data.social.Instagram }}" class="social-btn instagram">Instagram</a>
+                <a href="{{ data.social.email }}" class="social-btn email">Email Me</a>
+            </div>
+        </section>
+
+        <section class="bio-section" data-aos="fade-up">
+            <div class="glass-card bio-card">
+                <div class="section-label">About Me</div>
+                <h2>{{ data.tagline }}</h2>
+                <p>{{ data.about }}</p>
+            </div>
+        </section>
+
+        <section class="projects-section" data-aos="fade-up">
+            <div class="section-label">Selected Projects</div>
+            <div class="grid">
+                {% for project in data.projects %}
+                <div class="project-card">
+                    <h3>{{ project.name }}</h3>
+                    <p>{{ project.desc }}</p>
+                    <div class="tags">
+                        {% for t in project.tech %}
+                        <span>#{{ t }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>AOS.init({ duration: 800 });</script>
+</body>
+
+</html>
