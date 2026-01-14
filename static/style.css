@@ -180,7 +180,33 @@ section {
         font-size: 2.4rem;
     }
 
+   /* =========================
+   HOVER GLOW EFFECTS
+========================= */
+
+/* Glass card glow */
+.glass-card:hover {
+    box-shadow:
+        0 0 0 1px rgba(125, 211, 252, 0.25),
+        0 0 30px rgba(125, 211, 252, 0.35),
+        0 25px 50px rgba(0, 0, 0, 0.45);
+}
+
+/* Project card glow */
+.project-card:hover {
+    box-shadow:
+        0 0 0 1px rgba(125, 211, 252, 0.25),
+        0 0 26px rgba(125, 211, 252, 0.35),
+        0 25px 50px rgba(0, 0, 0, 0.45);
+}
+
+
     section {
         padding: 30px 16px;
     }
+}
+
+/* Subtle section background reaction */
+section:hover {
+    background: rgba(255, 255, 255, 0.015);
 }
