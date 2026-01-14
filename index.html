@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RAWAD ALANI | Portfolio</title>
-    <link rel="stylesheet" href="static/style.css">
+
+    <!-- MAIN CSS (GitHub Pages SAFE path) -->
+    <link rel="stylesheet" href="./static/style.css">
+
+    <!-- GOOGLE FONT -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- AOS ANIMATION CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
 </head>
 
 <body>
 
+    <!-- HERO SECTION -->
     <header class="hero">
         <div class="hero-content">
             <h1>Hi, I'm <span class="highlight">Alani Rawad</span></h1>
@@ -21,8 +27,11 @@
     </header>
 
     <main>
+
+        <!-- SOCIAL LINKS -->
         <section class="links-section" data-aos="fade-up">
             <div class="section-label">Connect & Follow</div>
+
             <div class="button-group">
                 <a href="https://github.com/alanirawad-sketch" class="social-btn github">GitHub</a>
                 <a href="https://www.linkedin.com/in/rawadtal-ani" class="social-btn linkedin">LinkedIn</a>
@@ -32,21 +41,35 @@
             </div>
         </section>
 
+        <!-- ABOUT ME -->
         <section class="bio-section" data-aos="fade-up">
             <div class="glass-card bio-card">
                 <div class="section-label">About Me</div>
                 <h2>Architecting digital solutions for healthcare.</h2>
-                <p>I specialize in digital health solutions and data analytics.</p>
+                <p>
+                    I specialize in digital health solutions, data analytics,
+                    and building reliable, user-focused systems for healthcare environments.
+                </p>
             </div>
         </section>
 
+        <!-- PROJECTS -->
         <section id="projects" class="projects-section" data-aos="fade-up">
             <div class="section-label">Selected Projects</div>
+
             <div class="grid">
 
                 <div class="project-card">
-                    <h3><a href="https://alanirawad-sketch.github.io/Meditrack/" style="text-decoration: none; color: inherit;">Meditrack</a></h3>
-                    <p>A comprehensive healthcare management system designed for tracking patient data and medical records.</p>
+                    <h3>
+                        <a href="https://alanirawad-sketch.github.io/Meditrack/"
+                           style="text-decoration: none; color: inherit;">
+                            Meditrack
+                        </a>
+                    </h3>
+                    <p>
+                        A comprehensive healthcare management system designed for tracking
+                        patient data and medical records.
+                    </p>
                     <div class="tags">
                         <span>#Python</span>
                         <span>#Healthcare</span>
@@ -56,7 +79,9 @@
 
                 <div class="project-card">
                     <h3>Neural Vision API</h3>
-                    <p>An advanced image recognition engine with real-time processing.</p>
+                    <p>
+                        An advanced image recognition engine with real-time processing.
+                    </p>
                     <div class="tags">
                         <span>#Python</span>
                         <span>#Flask</span>
@@ -66,17 +91,21 @@
 
                 <div class="project-card">
                     <h3>Quantum Portfolio</h3>
-                    <p>The very site you are looking at. Highly dynamic and responsive.</p>
+                    <p>
+                        The very site you are looking at — fully responsive and animated.
+                    </p>
                     <div class="tags">
                         <span>#Glassmorphism</span>
                         <span>#CSS3</span>
-                        <span>#Jinja2</span>
+                        <span>#HTML5</span>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <h3>Cloud Automator</h3>
-                    <p>Automation suite for managing virtual server environments.</p>
+                    <p>
+                        Automation suite for managing and deploying cloud servers.
+                    </p>
                     <div class="tags">
                         <span>#Python</span>
                         <span>#Ubuntu</span>
@@ -86,14 +115,17 @@
 
             </div>
         </section>
+
     </main>
 
+    <!-- AOS SCRIPT -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init({
-            duration: 800
+            duration: 800,
+            once: true
         });
     </script>
-</body>
 
+</body>
 </html>
