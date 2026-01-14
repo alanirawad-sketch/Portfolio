@@ -240,4 +240,26 @@ body {
         background-position: 200% center;
     }
 }
+.top-header .name {
+    position: relative;
+    display: inline-block;
+}
+
+.top-header .name::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -12px;
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    transform: translateX(-50%);
+}
+.top-header .name {
+    transition: letter-spacing 0.3s ease;
+}
+
+.top-header .name:hover {
+    letter-spacing: 6px;
+}
 
