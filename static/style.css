@@ -326,4 +326,7 @@ body {
     display: flex;
   }
 }
+body {
+  padding-top: 70px;
+}
 
