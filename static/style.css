@@ -345,8 +345,6 @@ html {
     background: url("../assets/images/background.jpg") center / cover no-repeat fixed;
 }
 
-}
-
 html::before {
     content: "";
     position: fixed;
