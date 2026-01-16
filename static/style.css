@@ -19,7 +19,6 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #0f172a, #020617);
     color: var(--text-main);
     line-height: 1.6;
 }
@@ -340,36 +339,20 @@ body {
     padding-top: 70px;
 }
 
-/* ===== GLOBAL BACKGROUND IMAGE ===== */
+/* ===== FINAL GLOBAL BACKGROUND IMAGE ===== */
 
-body {
-    position: relative;
+html {
     background: url("/Portfolio/assets/images/background.jpg") center / cover no-repeat fixed;
-
 }
 
-/* Dark faded overlay */
-body::before {
+html::before {
     content: "";
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.55);
-    /* controls darkness */
     z-index: -1;
-}
-/* ===== FORCE GLOBAL BACKGROUND IMAGE ===== */
-
-html {
-  background: url("/Portfolio/assets/images/background.jpg") center / cover no-repeat fixed;
 }
 
 body {
-  background: transparent !important;
-}
-html::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: -1;
+    background: transparent;
 }
