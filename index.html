@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RAWAD ALANI | Portfolio</title>
@@ -11,20 +12,19 @@
     <!-- GOOGLE FONT -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
-    <!-- ICONS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- AOS -->
+    <!-- AOS ANIMATION CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
 </head>
 <body>
 
 <nav class="navbar">
-    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    <div class="hamburger" onclick="toggleMenu()">
+        &#9776;
+    </div>
+
     <ul class="nav-menu" id="navMenu">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
@@ -32,29 +32,41 @@
 
 <main>
 
-    <!-- HEADER -->
+    <!-- SIMPLE TOP HEADER -->
     <section id="home" class="top-header" data-aos="fade-down">
         <h1 class="name">RAWAD ALANI</h1>
         <p class="subtitle">Health Informatics Specialist</p>
     </section>
 
-    <!-- CONNECT -->
+    <!-- SOCIAL LINKS -->
     <section id="contact" class="links-section" data-aos="fade-up">
         <div class="section-label">Connect & Follow</div>
 
         <div class="button-group">
-            <a href="https://github.com/alanirawad-sketch" class="social-btn"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/rawadtal-ani" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://www.facebook.com/rawad.dimook" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/rawaddimook/" class="social-btn"><i class="fab fa-instagram"></i></a>
-            <a href="mailto:alanirawad@email.com" class="social-btn"><i class="fas fa-envelope"></i></a>
-            <a href="tel:+491637028015" class="social-btn"><i class="fas fa-phone"></i></a>
+            <a href="https://github.com/alanirawad-sketch" class="social-btn" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/rawadtal-ani" class="social-btn" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.facebook.com/rawad.dimook" class="social-btn" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/rawaddimook/" class="social-btn" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="mailto:alanirawad@email.com" class="social-btn" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="tel:+491637028015" class="social-btn" aria-label="Phone">
+                <i class="fas fa-phone"></i>
+            </a>
         </div>
     </section>
 
-    <!-- ABOUT -->
+    <!-- ABOUT ME -->
     <section id="about" class="bio-section" data-aos="fade-up">
-        <div class="glass-card">
+        <div class="glass-card bio-card">
             <div class="section-label">About Me</div>
             <h2>Architecting digital solutions for healthcare.</h2>
             <p>
@@ -70,22 +82,22 @@
         <div class="section-label">Skills</div>
 
         <div class="glass-card skills-card">
-            <ul class="skills-list">
-                <li>Health Informatics</li>
-                <li>Digital Health Systems</li>
-                <li>Healthcare Data Analysis</li>
-                <li>Clinical Data Management</li>
-                <li>Python</li>
-                <li>Rust</li>
-                <li>HTML5 / CSS3</li>
-                <li>GitHub</li>
-                <li>Linux / Ubuntu</li>
-                <li>Bash</li>
-                <li>REST APIs</li>
-                <li>Data Visualization</li>
-                <li>Medical Records Systems</li>
-                <li>System Design</li>
-            </ul>
+            <div class="skills-grid">
+                <span>Health Informatics</span>
+                <span>Digital Health Systems</span>
+                <span>Healthcare Data Analysis</span>
+                <span>Clinical Data Management</span>
+                <span>Python</span>
+                <span>Rust</span>
+                <span>HTML5 / CSS3</span>
+                <span>GitHub</span>
+                <span>Linux / Ubuntu</span>
+                <span>Bash</span>
+                <span>REST APIs</span>
+                <span>Data Visualization</span>
+                <span>Medical Records Systems</span>
+                <span>System Design</span>
+            </div>
         </div>
     </section>
 
@@ -94,30 +106,67 @@
         <div class="section-label">Selected Projects</div>
 
         <div class="grid">
+
             <div class="project-card">
-                <h3>Meditrack</h3>
-                <p>Healthcare management system for tracking patient data.</p>
+                <h3>
+                    <a href="https://alanirawad-sketch.github.io/Meditrack/"
+                       style="text-decoration: none; color: inherit;">
+                        Meditrack
+                    </a>
+                </h3>
+                <p>
+                    A comprehensive healthcare management system designed for tracking
+                    patient data and medical records.
+                </p>
+                <div class="tags">
+                    <span>#HealthInformatics</span>
+                    <span>#Rust</span>
+                    <span>#Data</span>
+                </div>
             </div>
+
             <div class="project-card">
                 <h3>Neural Vision API</h3>
-                <p>Real-time image recognition engine.</p>
+                <p>An advanced image recognition engine with real-time processing.</p>
+                <div class="tags">
+                    <span>#Python</span>
+                    <span>#Flask</span>
+                    <span>#OpenCV</span>
+                </div>
             </div>
+
             <div class="project-card">
                 <h3>Quantum Portfolio</h3>
-                <p>Responsive portfolio with glassmorphism.</p>
+                <p>The very site you are looking at — fully responsive and animated.</p>
+                <div class="tags">
+                    <span>#CSS3</span>
+                    <span>#HTML5</span>
+                    <span>#Glassmorphism</span>
+                </div>
             </div>
+
             <div class="project-card">
                 <h3>Cloud Automator</h3>
-                <p>Automation suite for cloud server deployment.</p>
+                <p>Automation suite for managing and deploying cloud servers.</p>
+                <div class="tags">
+                    <span>#Python</span>
+                    <span>#Ubuntu</span>
+                    <span>#Bash</span>
+                </div>
             </div>
+
         </div>
     </section>
 
 </main>
 
+<!-- AOS SCRIPT -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-    AOS.init({ duration: 800, once: true });
+    AOS.init({
+        duration: 800,
+        once: true
+    });
 </script>
 <script src="./static/script.js"></script>
 
