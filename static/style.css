@@ -357,3 +357,19 @@ body::before {
     /* controls darkness */
     z-index: -1;
 }
+/* ===== FORCE GLOBAL BACKGROUND IMAGE ===== */
+
+html {
+  background: url("/Portfolio/assets/images/background.jpg") center / cover no-repeat fixed;
+}
+
+body {
+  background: transparent !important;
+}
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: -1;
+}
