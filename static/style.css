@@ -298,10 +298,13 @@ body {
   text-decoration: none;
   color: white;
   font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.25s ease, color 0.25s ease;
 }
-
 .nav-menu li a:hover {
-  color: #38bdf8;
+  background: rgba(125, 211, 252, 0.15);
+  color: var(--accent);
 }
 
 /* MOBILE */
