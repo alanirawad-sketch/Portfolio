@@ -342,7 +342,9 @@ body {
 /* ===== FINAL GLOBAL BACKGROUND IMAGE ===== */
 
 html {
-    background: url("/Portfolio/assets/images/background.jpg") center / cover no-repeat fixed;
+    background: url("../assets/images/background.jpg") center / cover no-repeat fixed;
+}
+
 }
 
 html::before {
