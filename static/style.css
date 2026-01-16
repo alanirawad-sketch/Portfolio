@@ -344,7 +344,7 @@ body {
 
 body {
     position: relative;
-    background: url("../assets/images/background.jpg") center / cover no-repeat fixed;
+    background: url("/Portfolio/assets/images/background.jpg") center / cover no-repeat fixed;
 
 }
 
