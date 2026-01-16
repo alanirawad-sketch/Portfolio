@@ -89,7 +89,10 @@ section {
     text-align: center;
     color: var(--text-main);
 }
-
+.section-title {
+    text-align: center;
+    margin: 0 auto 60px;
+}
 
 /* SOCIAL */
 
