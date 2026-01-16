@@ -154,11 +154,17 @@ section {
     gap: 24px;
 }
 
+/* ===== PROJECT GLASS CARDS ===== */
+
 .project-card {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--bg-glass);          /* SAME as About */
+    backdrop-filter: blur(14px);          /* SAME as About */
     border-radius: 20px;
     padding: 26px;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
