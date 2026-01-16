@@ -158,15 +158,16 @@ section {
 
 .project-card {
     border: 1px solid rgba(255, 255, 255, 0.08);
-    background: var(--bg-glass);          /* SAME as About */
-    backdrop-filter: blur(14px);          /* SAME as About */
+    background: var(--bg-glass);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border-radius: 20px;
     padding: 26px;
     cursor: pointer;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 
 .project-card:hover {
     transform: translateY(-8px);
@@ -184,15 +185,11 @@ section {
     color: var(--accent);
 }
 
-
 .project-card p {
     color: var(--text-muted);
     margin-bottom: 16px;
-}
-.project-card p {
     font-size: 0.95rem;
 }
-
 
 /* =========================
    TAGS
