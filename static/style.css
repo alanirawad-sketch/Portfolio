@@ -84,8 +84,8 @@ section {
 .section-label {
     max-width: 900px;
     margin: 0 auto 60px;
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 1.6rem;
+    font-weight: 600;
     text-align: center;
     color: var(--text-main);
 }
