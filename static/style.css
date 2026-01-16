@@ -75,6 +75,16 @@ body { background: transparent; }
     font-size: 3.2rem;
     font-weight: 800;
 }
+.name {
+    letter-spacing: 0;
+    transition: letter-spacing 0.35s ease;
+    cursor: pointer;
+}
+
+.name:hover {
+    letter-spacing: 6px;
+}
+
 
 /* SECTIONS */
 section {
