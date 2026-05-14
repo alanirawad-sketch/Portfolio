@@ -1,0 +1,278 @@
+
+<canvas id="bg" style="display:block;width:100%;height:520px;background:#060c14;border-radius:12px;"></canvas>
+<script>
+const canvas = document.getElementById('bg');
+const ctx = canvas.getContext('2d');
+const ACC = '#7dd3fc';
+const ACC2 = '#38bdf8';
+const ACC3 = '#0ea5e9';
+
+function resize() {
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+}
+resize();
+
+const W = () => canvas.width;
+const H = () => canvas.height;
+
+const particles = Array.from({length: 55}, () => ({
+  x: Math.random(),
+  y: Math.random(),
+  r: 1.2 + Math.random() * 2,
+  vx: (Math.random() - 0.5) * 0.00025,
+  vy: (Math.random() - 0.5) * 0.00025,
+  alpha: 0.3 + Math.random() * 0.5,
+  phase: Math.random() * Math.PI * 2
+}));
+
+const nodes = [
+  {x:0.08,y:0.24},{x:0.15,y:0.19},{x:0.15,y:0.29},{x:0.21,y:0.17},{x:0.21,y:0.26},
+  {x:0.83,y:0.72},{x:0.89,y:0.64},{x:0.89,y:0.79},{x:0.94,y:0.61},{x:0.94,y:0.72},{x:0.94,y:0.83}
+];
+const edges = [
+  [0,1],[0,2],[1,3],[1,4],[2,4],
+  [5,6],[5,7],[6,8],[6,9],[7,9],[7,10]
+];
+
+let ekgOffset = 0;
+let dnaOffset = 0;
+let t = 0;
+
+function drawGrid() {
+  ctx.save();
+  ctx.strokeStyle = ACC;
+  ctx.globalAlpha = 0.07;
+  ctx.lineWidth = 0.5;
+  const gx = W() / 11;
+  const gy = H() / 9;
+  for (let i = 0; i <= 11; i++) { ctx.beginPath(); ctx.moveTo(i*gx,0); ctx.lineTo(i*gx,H()); ctx.stroke(); }
+  for (let j = 0; j <= 9; j++)  { ctx.beginPath(); ctx.moveTo(0,j*gy); ctx.lineTo(W(),j*gy); ctx.stroke(); }
+  ctx.restore();
+}
+
+function drawCircuitLeft() {
+  const s = Math.min(W(), H());
+  ctx.save();
+  ctx.strokeStyle = ACC;
+  ctx.lineWidth = 1;
+  ctx.globalAlpha = 0.28 + 0.1 * Math.sin(t * 0.8);
+  ctx.beginPath();
+  ctx.moveTo(W()*0.06, H()*0.76);
+  ctx.lineTo(W()*0.06, H()*0.67);
+  ctx.lineTo(W()*0.13, H()*0.67);
+  ctx.lineTo(W()*0.13, H()*0.57);
+  ctx.lineTo(W()*0.22, H()*0.57);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(W()*0.13, H()*0.67);
+  ctx.lineTo(W()*0.13, H()*0.81);
+  ctx.lineTo(W()*0.21, H()*0.81);
+  ctx.lineTo(W()*0.21, H()*0.88);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(W()*0.22, H()*0.57);
+  ctx.lineTo(W()*0.22, H()*0.48);
+  ctx.lineTo(W()*0.38, H()*0.48);
+  ctx.stroke();
+  [[W()*0.13,H()*0.67],[W()*0.22,H()*0.57],[W()*0.13,H()*0.81],[W()*0.21,H()*0.81]].forEach(([cx,cy]) => {
+    ctx.beginPath(); ctx.arc(cx, cy, 3, 0, Math.PI*2);
+    ctx.fillStyle = ACC; ctx.globalAlpha = 0.7; ctx.fill();
+  });
+  ctx.restore();
+}
+
+function drawCircuitRight() {
+  ctx.save();
+  ctx.strokeStyle = ACC2;
+  ctx.lineWidth = 1;
+  ctx.globalAlpha = 0.28 + 0.1 * Math.sin(t * 0.9 + 1);
+  ctx.beginPath();
+  ctx.moveTo(W()*0.94, H()*0.24);
+  ctx.lineTo(W()*0.85, H()*0.24);
+  ctx.lineTo(W()*0.85, H()*0.36);
+  ctx.lineTo(W()*0.76, H()*0.36);
+  ctx.lineTo(W()*0.76, H()*0.48);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(W()*0.85, H()*0.36);
+  ctx.lineTo(W()*0.85, H()*0.48);
+  ctx.lineTo(W()*0.79, H()*0.48);
+  ctx.lineTo(W()*0.79, H()*0.60);
+  ctx.lineTo(W()*0.70, H()*0.60);
+  ctx.stroke();
+  [[W()*0.85,H()*0.24],[W()*0.85,H()*0.36],[W()*0.76,H()*0.36],[W()*0.79,H()*0.48]].forEach(([cx,cy]) => {
+    ctx.beginPath(); ctx.arc(cx, cy, 3, 0, Math.PI*2);
+    ctx.fillStyle = ACC2; ctx.globalAlpha = 0.7; ctx.fill();
+  });
+  ctx.restore();
+}
+
+function drawDNA() {
+  const cx = W() * 0.43;
+  const top = H() * 0.08;
+  const bot = H() * 0.92;
+  const amp = W() * 0.03;
+  const freq = Math.PI * 2 / (H() * 0.22);
+  dnaOffset += 0.018;
+  ctx.save();
+  ctx.lineWidth = 1.5;
+
+  ctx.beginPath();
+  ctx.globalAlpha = 0.45;
+  ctx.strokeStyle = ACC;
+  for (let y = top; y <= bot; y += 2) {
+    const x = cx + amp * Math.sin(freq * y + dnaOffset);
+    y === top ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  }
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.globalAlpha = 0.35;
+  ctx.strokeStyle = ACC2;
+  for (let y = top; y <= bot; y += 2) {
+    const x = cx - amp * Math.sin(freq * y + dnaOffset);
+    y === top ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  }
+  ctx.stroke();
+
+  ctx.globalAlpha = 0.3;
+  ctx.strokeStyle = '#bae6fd';
+  ctx.lineWidth = 0.8;
+  const step = H() * 0.11;
+  for (let s = 0; s < 8; s++) {
+    const y = top + step * s + (step * ((dnaOffset / (Math.PI*2)) % 1));
+    if (y > bot) continue;
+    const x1 = cx + amp * Math.sin(freq * y + dnaOffset);
+    const x2 = cx - amp * Math.sin(freq * y + dnaOffset);
+    ctx.beginPath(); ctx.moveTo(x1, y); ctx.lineTo(x2, y); ctx.stroke();
+  }
+  ctx.restore();
+}
+
+function drawEKG() {
+  ekgOffset -= 1.8;
+  const y0 = H() * 0.50;
+  const x0 = W() * 0.52;
+  const maxLen = W() * 0.42;
+
+  const seg = [
+    [0,0],[0.12,0],[0.14,0],[0.17,-0.095],[0.21,0.19],[0.25,-0.065],[0.29,0.048],[0.33,0],[1,0]
+  ];
+
+  ctx.save();
+  ctx.strokeStyle = ACC;
+  ctx.lineWidth = 1.8;
+  ctx.shadowColor = ACC;
+  ctx.shadowBlur = 0;
+
+  ctx.beginPath();
+  let drawn = false;
+  seg.forEach(([rx, ry], i) => {
+    const px = x0 + rx * maxLen + (ekgOffset % maxLen);
+    const py = y0 + ry * H() * 0.22;
+    const wrapped = ((px - x0) % maxLen + maxLen) % maxLen;
+    if (wrapped < 2 && i > 0) { ctx.globalAlpha = 0; ctx.stroke(); ctx.beginPath(); ctx.globalAlpha = 0.85; drawn = false; }
+    if (!drawn) { ctx.moveTo(px, py); drawn = true; } else { ctx.lineTo(px, py); }
+  });
+  ctx.globalAlpha = 0.85;
+  ctx.stroke();
+
+  ctx.lineWidth = 7;
+  ctx.globalAlpha = 0.06;
+  ctx.beginPath();
+  drawn = false;
+  seg.forEach(([rx, ry]) => {
+    const px = x0 + rx * maxLen + (ekgOffset % maxLen);
+    const py = y0 + ry * H() * 0.22;
+    if (!drawn) { ctx.moveTo(px, py); drawn = true; } else { ctx.lineTo(px, py); }
+  });
+  ctx.stroke();
+  ctx.restore();
+}
+
+function drawNeural() {
+  ctx.save();
+  const pulse = 0.5 + 0.5 * Math.sin(t * 1.2);
+  edges.forEach(([a,b]) => {
+    const na = nodes[a], nb = nodes[b];
+    ctx.beginPath();
+    ctx.moveTo(na.x*W(), na.y*H());
+    ctx.lineTo(nb.x*W(), nb.y*H());
+    ctx.strokeStyle = ACC;
+    ctx.lineWidth = 0.7;
+    ctx.globalAlpha = 0.18 + 0.18 * pulse;
+    ctx.stroke();
+  });
+  nodes.forEach((n, i) => {
+    const phase = i * 0.6;
+    const a = 0.5 + 0.4 * Math.sin(t * 1.1 + phase);
+    ctx.beginPath();
+    ctx.arc(n.x*W(), n.y*H(), i < 5 ? 4 : 3, 0, Math.PI*2);
+    ctx.fillStyle = i % 2 === 0 ? ACC : ACC2;
+    ctx.globalAlpha = a;
+    ctx.fill();
+  });
+  ctx.restore();
+}
+
+function drawParticles() {
+  particles.forEach(p => {
+    p.x += p.vx; p.y += p.vy;
+    if (p.x < 0) p.x = 1; if (p.x > 1) p.x = 0;
+    if (p.y < 0) p.y = 1; if (p.y > 1) p.y = 0;
+    const glow = 0.3 + 0.4 * Math.sin(t * 0.9 + p.phase);
+    ctx.beginPath();
+    ctx.arc(p.x*W(), p.y*H(), p.r, 0, Math.PI*2);
+    ctx.fillStyle = ACC;
+    ctx.globalAlpha = p.alpha * glow;
+    ctx.fill();
+  });
+
+  particles.forEach((a, i) => {
+    particles.slice(i+1).forEach(b => {
+      const dx = (a.x - b.x)*W(), dy = (a.y - b.y)*H();
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      if (dist < 90) {
+        ctx.beginPath();
+        ctx.moveTo(a.x*W(), a.y*H());
+        ctx.lineTo(b.x*W(), b.y*H());
+        ctx.strokeStyle = ACC;
+        ctx.lineWidth = 0.5;
+        ctx.globalAlpha = (1 - dist/90) * 0.18;
+        ctx.stroke();
+      }
+    });
+  });
+}
+
+function drawCross() {
+  const cx = W()*0.50, cy = H()*0.72;
+  const a = 0.06 + 0.04 * Math.sin(t*0.7);
+  ctx.save();
+  ctx.fillStyle = ACC;
+  ctx.globalAlpha = a;
+  ctx.fillRect(cx-14, cy-5, 28, 10);
+  ctx.fillRect(cx-5, cy-14, 10, 28);
+  ctx.restore();
+}
+
+function frame() {
+  t += 0.016;
+  ctx.clearRect(0, 0, W(), H());
+  ctx.fillStyle = '#060c14';
+  ctx.fillRect(0, 0, W(), H());
+  drawGrid();
+  drawParticles();
+  drawCircuitLeft();
+  drawCircuitRight();
+  drawDNA();
+  drawEKG();
+  drawNeural();
+  drawCross();
+  requestAnimationFrame(frame);
+}
+
+window.addEventListener('resize', resize);
+frame();
+</script>
