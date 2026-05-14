@@ -23,7 +23,7 @@ html {
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--text-main);
-    background: #060c14;
+    background: transparent;
     overflow-x: hidden;
     animation: pageFade 0.8s ease-out;
 }
