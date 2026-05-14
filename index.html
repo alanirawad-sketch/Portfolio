@@ -38,6 +38,8 @@
 
 <body>
 
+    <canvas id="bg"></canvas>
+
     <nav class="navbar">
         <div class="hamburger" onclick="toggleMenu()">
             &#9776;
@@ -56,8 +58,6 @@
 
         <!-- SIMPLE TOP HEADER -->
         <section id="home" class="hero-section">
-
-            <canvas id="bg"></canvas>
 
             <div class="hero-overlay">
                 <h1 class="hero-name">RAWAD ALANI</h1>
@@ -302,12 +302,12 @@
         const W = () => canvas.width;
         const H = () => canvas.height;
 
-        const particles = Array.from({ length: 55 }, () => ({
+        const particles = Array.from({ length: 90 }, () => ({
             x: Math.random(),
             y: Math.random(),
             r: 1.2 + Math.random() * 2,
-            vx: (Math.random() - 0.5) * 0.00025,
-            vy: (Math.random() - 0.5) * 0.00025,
+            vx: (Math.random() - 0.5) * 0.0007,
+            vy: (Math.random() - 0.5) * 0.0007,
             alpha: 0.3 + Math.random() * 0.5,
             phase: Math.random() * Math.PI * 2
         }));
@@ -353,7 +353,7 @@
                 if (p.y < 0) p.y = 1;
                 if (p.y > 1) p.y = 0;
 
-                const glow = 0.3 + 0.4 * Math.sin(t * 0.9 + p.phase);
+                const glow = 0.2 + 0.6 * Math.sin(t * 1.6 + p.phase);
 
                 ctx.beginPath();
                 ctx.arc(p.x * W(), p.y * H(), p.r, 0, Math.PI * 2);
@@ -372,8 +372,8 @@
 
             ctx.save();
 
-            ctx.strokeStyle = ACC;
-            ctx.lineWidth = 2;
+            ctx.strokeStyle = ACC2;
+            ctx.lineWidth = 2.5;
 
             ctx.beginPath();
 
@@ -392,7 +392,7 @@
 
         function frame() {
 
-            t += 0.016;
+            t += 0.022;
 
             ctx.clearRect(0, 0, W(), H());
 
