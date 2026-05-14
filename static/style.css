@@ -140,9 +140,7 @@ section {
 
 .social-btn {
     text-decoration: none !important;
-    /* Removes the line */
     border: none !important;
-    /* Removes any border */
 }
 
 .social-btn:hover {
@@ -161,9 +159,14 @@ section {
 }
 
 /* SKILLS */
+.skills-section .grid,
+.projects-section .grid {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
 .skills-list {
     list-style: disc;
-    /* This adds the bullets */
     padding-left: 25px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -172,14 +175,15 @@ section {
     transition: transform 0.3s ease;
 }
 
-/* PROJECTS */
+/* PROJECTS & SKILLS CARDS */
 .grid {
     display: grid;
     gap: 24px;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
-.project-card {
+.project-card,
+.skills-card {
     background: var(--bg-glass);
     backdrop-filter: blur(14px);
     border-radius: 20px;
@@ -187,8 +191,25 @@ section {
     transition: transform 0.3s ease;
 }
 
-.project-card:hover {
+.project-card:hover,
+.skills-card:hover {
     transform: translateY(-6px);
+}
+
+/* TAGS */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.tags span {
+    font-size: 0.75rem;
+    color: var(--accent);
+    background: rgba(125, 211, 252, 0.1);
+    border-radius: 20px;
+    padding: 4px 10px;
 }
 
 /* ANIM */
