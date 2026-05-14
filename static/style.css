@@ -109,32 +109,34 @@ html::before {
 /* CANVAS BACKGROUND */
 
 #bg {
-    position: absolute;
+    position: fixed;
 
     top: 0;
     left: 0;
 
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
+
+    z-index: -2;
 
     display: block;
-
-    z-index: 1;
 
     background: #060c14;
 }
 
 /* HERO DARK OVERLAY */
 
-.hero-section::after {
+body::before {
     content: "";
 
-    position: absolute;
+    position: fixed;
     inset: 0;
 
     background: rgba(0, 0, 0, 0.42);
 
-    z-index: 2;
+    z-index: -1;
+
+    pointer-events: none;
 }
 
 /* HERO CONTENT */
@@ -156,7 +158,11 @@ html::before {
 
     letter-spacing: 0;
 
-    transition: letter-spacing 0.35s ease;
+    transition:
+        letter-spacing 0.35s ease,
+        transform 0.35s ease;
+
+    cursor: pointer;
 
     text-shadow:
         0 0 30px rgba(125, 211, 252, 0.35),
@@ -164,7 +170,8 @@ html::before {
 }
 
 .hero-name:hover {
-    letter-spacing: 6px;
+    letter-spacing: 10px;
+    transform: scale(1.02);
 }
 
 /* HERO SUBTITLE */
