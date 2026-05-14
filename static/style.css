@@ -20,7 +20,7 @@ body {
 
 /* BACKGROUND */
 html {
-    background: url("../assets/images/pic.jpg") center / cover no-repeat fixed;
+    background: url("../assets/images/health_informatics_wallpaper.svg") center / cover no-repeat fixed;
 }
 
 html::before {
